@@ -57,9 +57,11 @@ cmp.setup(
         -- 绑定补全相关的按键
         mapping = {
             -- 上一个
-            ["<C-p>"] = cmp.mapping.select_prev_item(),
+            -- ["<C-p>"] = cmp.mapping.select_prev_item(),
+	    ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
+	    ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
             -- 下一个
-            ["<C-n>"] = cmp.mapping.select_next_item(),
+            -- ["<C-n>"] = cmp.mapping.select_next_item(),
             -- 选择补全
             ["<CR>"] = cmp.mapping.confirm(),
             --  出现或关闭补全
@@ -123,5 +125,8 @@ cmp.setup.cmdline(
         )
     }
 )
-
-
+-- cmp.setup.cmdline(':', {
+--   sources = {
+--     { name = 'cmdline' }
+--   }
+-- })
