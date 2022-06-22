@@ -14,6 +14,9 @@ packer.startup({
 		use({
 			"yianwillis/vimcdoc",
 		})
+		use({
+			"nvim-lualine/lualine.nvim",
+		})
 		-- nvim-tree
 		use({
 			"kyazdani42/nvim-tree.lua",
