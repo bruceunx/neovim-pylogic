@@ -55,11 +55,12 @@ lualine.setup {
     lualine_x = {
       {
       'filename',
-      file_status = true, -- displays file status (readonly status, modified status)
+      file_status = false, -- displays file status (readonly status, modified status)
       path = 1 -- 0 = just filename, 1 = relative path, 2 = absolute path
       }
     },
-    lualine_y = { location, "encoding", filetype },
-    lualine_z = { "progress" },
+    -- lualine_y = { location, "encoding", filetype },
+    lualine_y = { "encoding", filetype },
+    -- lualine_z = { "progress" },
   },
 }
