@@ -10,6 +10,7 @@ local servers = {
   "tsserver",
   "pyright",
   "clangd",
+  "rust_analyzer",
 }
 
 lsp_installer.setup()

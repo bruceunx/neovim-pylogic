@@ -20,7 +20,7 @@ vim.o.syntax = "enable"
 -- 是否显示绝对行号
 vim.o.number = true
 -- 是否显示相对行号
-vim.o.relativenumber = true
+-- vim.o.relativenumber = true
 -- 设定光标上下两侧最少保留的屏幕行数
 vim.o.scrolloff = 10
 -- 是否支持鼠标操作

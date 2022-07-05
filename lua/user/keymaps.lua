@@ -88,5 +88,5 @@ vim.keybinds.gmap("n", "<leader>cs", "<cmd>set spell!<CR>", vim.keybinds.opts)
 -- vim.bo.softtabstop = 4
 
 
-vim.wo.number = true
-vim.wo.relativenumber = true
+-- vim.wo.number = true
+-- vim.wo.relativenumber = true
