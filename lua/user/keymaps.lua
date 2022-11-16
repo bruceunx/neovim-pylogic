@@ -21,6 +21,9 @@ keymap('i', 'jk', '<ESC>', {})
 local opts = { noremap = true, silent = true }
 -- Normal --
 -- Better window navigation
+keymap('n', '+', '<C-a>', opts)
+keymap('n', '-', '<C-x>', opts)
+keymap('n', '<C-a>', 'gg<S-v>G', opts)
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
@@ -53,13 +56,11 @@ vim.keybinds.gmap("i", "jj", "<Esc>", vim.keybinds.opts)
 -- vim.keybinds.gmap("c", "<C-j>", "<C-n>", {noremap = false})
 -- vim.keybinds.gmap("c", "<C-k>", "<C-p>", {noremap = false})
 -- 用 H 和 L 代替 ^ 与 $
-vim.keybinds.gmap("n", "H", "^", vim.keybinds.opts)
 -- vim.keybinds.gmap("n", "nn", "i<ESC>", vim.keybinds.opts)
 vim.keybinds.gmap("n", "<CR>", "o<ESC>k", vim.keybinds.opts)
 vim.keybinds.gmap("n", "N", "J", vim.keybinds.opts)
-vim.keybinds.gmap("v", "H", "^", vim.keybinds.opts)
-vim.keybinds.gmap("n", "L", "$", vim.keybinds.opts)
-vim.keybinds.gmap("v", "L", "$", vim.keybinds.opts)
+-- vim.keybinds.gmap("v", "H", "^", vim.keybinds.opts)
+-- vim.keybinds.gmap("v", "L", "$", vim.keybinds.opts)
 vim.keybinds.gmap("v", "J", "5j", vim.keybinds.opts)
 vim.keybinds.gmap("v", "K", "5k", vim.keybinds.opts)
 vim.keybinds.gmap("v", "mm", "<ESC>", vim.keybinds.opts)
@@ -82,6 +83,12 @@ vim.keybinds.gmap("n", "<ESC>", ":nohlsearch<CR>", vim.keybinds.opts)
     
 -- 通过 leader cs 切换拼写检查    
 vim.keybinds.gmap("n", "<leader>cs", "<cmd>set spell!<CR>", vim.keybinds.opts) 
+
+
+vim.keybinds.gmap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", vim.keybinds.opts) 
+vim.keybinds.gmap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", vim.keybinds.opts) 
+vim.keybinds.gmap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", vim.keybinds.opts) 
+vim.keybinds.gmap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", vim.keybinds.opts) 
 
 -- vim.bo.expandtab = true
 -- vim.bo.shiftwidth = 4

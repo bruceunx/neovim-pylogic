@@ -10,6 +10,7 @@ local servers = {
   "tsserver",
   "pyright",
   "clangd",
+  -- "marksman",
   "rust_analyzer",
 }
 
@@ -42,5 +43,9 @@ for _, server in pairs(servers) do
     opts = vim.tbl_deep_extend("force", pyright_opts, opts)
   end
 
+  if server == "html" then
+    local html_opts = require "user.lsp.settings.html"
+    opts = vim.tbl_deep_extend("force", html_opts, opts)
+  end
   lspconfig[server].setup(opts)
 end
