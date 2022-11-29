@@ -50,7 +50,7 @@ keymap('n', '<c-j>', '<c-w>j', opts)
 --markdown
 vim.keybinds.gmap("n", "mv", "<cmd>Glow<CR>", vim.keybinds.opts)
 -- 设置format timeout 2000
-vim.keybinds.gmap("n", "F", "<cmd>lua vim.lsp.buf.formatting_sync(nil, 2000)<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "F", "<cmd>lua vim.lsp.buf.format(nil, 2000)<CR>", vim.keybinds.opts)
 -- 插入模下 jj 退出插入模式
 vim.keybinds.gmap("i", "jj", "<Esc>", vim.keybinds.opts)
 -- vim.keybinds.gmap("c", "<C-j>", "<C-n>", {noremap = false})
@@ -89,6 +89,8 @@ vim.keybinds.gmap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", vim.keybin
 vim.keybinds.gmap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", vim.keybinds.opts) 
 vim.keybinds.gmap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", vim.keybinds.opts) 
 vim.keybinds.gmap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", vim.keybinds.opts) 
+vim.keybinds.gmap("n", "mv", "<cmd>MarkdownPreview<cr>", vim.keybinds.opts) 
+vim.keybinds.gmap("n", "mvx", "<cmd>MarkdownPreviewStop<cr>", vim.keybinds.opts) 
 
 -- vim.bo.expandtab = true
 -- vim.bo.shiftwidth = 4

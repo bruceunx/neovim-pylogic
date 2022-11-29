@@ -150,7 +150,7 @@ packer.startup({
 		--   end
 		-- }
 		-- markdown preview
-		use({ "ellisonleao/glow.nvim" })
+		-- use({ "ellisonleao/glow.nvim" })
 		--  use {
 		--      "sbdchd/neoformat",
 		--      config = function()

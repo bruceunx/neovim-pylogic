@@ -21,7 +21,7 @@ cmp.setup(
                 {name = "nvim_lsp"},
                 {name = "path"},
                 {name = "buffer"},
-                {name = "cmdline"},
+                -- {name = "cmdline"},
                 {name = "spell"},
                 {name = "cmp_tabnine"}
             }
