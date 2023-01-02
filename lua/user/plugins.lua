@@ -113,7 +113,9 @@ packer.startup({
 				{ "f3fora/cmp-spell" }, -- 拼写建议
 				{ "rafamadriz/friendly-snippets" }, -- 提供多种语言的代码片段
 				{ "lukas-reineke/cmp-under-comparator" }, -- 让补全结果的排序更加智能
+
 				{ "tzachar/cmp-tabnine", run = "./install.sh" }, -- tabnine 源,提供基于 AI 的智能补全
+
 			},
 		})
 		-- 扩展 LSP 诊断
@@ -167,9 +169,9 @@ packer.startup({
 		  -- run = function() vim.fn["mkdp#util#install"]() end,
 	     -- })
     -- DAP
-      -- use { "mfussenegger/nvim-dap", commit = "014ebd53612cfd42ac8c131e6cec7c194572f21d" }
-      -- use { "rcarriga/nvim-dap-ui", commit = "d76d6594374fb54abf2d94d6a320f3fd6e9bb2f7" }
-      -- use { "ravenxrz/DAPInstall.nvim", commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" }
+      use { "mfussenegger/nvim-dap"}
+      use { "rcarriga/nvim-dap-ui"}
+      use { "ravenxrz/DAPInstall.nvim"}
 
 	end,
 	-- 使用浮动窗口

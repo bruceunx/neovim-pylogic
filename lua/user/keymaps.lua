@@ -50,7 +50,7 @@ keymap('n', '<c-j>', '<c-w>j', opts)
 --markdown
 vim.keybinds.gmap("n", "mv", "<cmd>Glow<CR>", vim.keybinds.opts)
 -- 设置format timeout 2000
-vim.keybinds.gmap("n", "F", "<cmd>lua vim.lsp.buf.format(nil, 2000)<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "F", "<cmd>lua vim.lsp.buf.format()<CR>", vim.keybinds.opts)
 -- 插入模下 jj 退出插入模式
 vim.keybinds.gmap("i", "jj", "<Esc>", vim.keybinds.opts)
 -- vim.keybinds.gmap("c", "<C-j>", "<C-n>", {noremap = false})
@@ -99,3 +99,18 @@ vim.keybinds.gmap("n", "mvx", "<cmd>MarkdownPreviewStop<cr>", vim.keybinds.opts)
 
 -- vim.wo.number = true
 -- vim.wo.relativenumber = true
+--
+--
+-- DAP
+keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
+keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
+keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", opts)
+keymap("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", opts)
+keymap("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", opts)
+keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
+keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
+keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
+keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
+
+-- Lsp
+-- keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
