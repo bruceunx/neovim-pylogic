@@ -5,7 +5,7 @@ end
 
 configs.setup({
         -- 安装的高亮支持来源
-        ensure_installed = {"c", "cpp", "rust", "javascript", "python", "markdown", "html", "css"},
+        ensure_installed = {"c", "cpp", "rust", "javascript", "markdown", "python", "html", "css", "lua"},
         -- 同步下载高亮支持
         sync_install = true,
         -- 高亮相关
@@ -13,8 +13,8 @@ configs.setup({
             -- 启用高亮支持
             enable = true,
             -- 使用 treesitter 高亮而不是 neovim 内置的高亮
-            additional_vim_regex_highlighting = true,
-	    disable = { "lua"},
+            additional_vim_regex_highlighting = false,
+	    -- disable = { "lua"},
         },
         -- 范围选择
         incremental_selection = {

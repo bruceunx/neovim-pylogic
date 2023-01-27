@@ -164,10 +164,9 @@ packer.startup({
 		-- use{"folke/tokyonight.nvim"}
 		-- 安装其它插件
 
-	     -- use({
-		 -- "iamcco/markdown-preview.nvim"
-		  -- run = function() vim.fn["mkdp#util#install"]() end,
-	     -- })
+	     use({
+		 "iamcco/markdown-preview.nvim"
+	     })
     -- DAP
       use { "mfussenegger/nvim-dap"}
       use { "rcarriga/nvim-dap-ui"}
