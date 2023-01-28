@@ -10,6 +10,7 @@ local servers = {
   "tsserver",
   "pyright",
   "clangd",
+  "gopls",
   -- "marksman",
   "rust_analyzer",
 }
@@ -38,6 +39,10 @@ for _, server in pairs(servers) do
     local tsserver_opts = require "user.lsp.settings.tsserver"
     opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
   end
+  --[[ if server == "gopls" then ]]
+  --[[   local gopls_opts = require "user.lsp.settings.gopls" ]]
+  --[[   opts = vim.tbl_deep_extend("force", tsserver_opts, opts) ]]
+  --[[ end ]]
   if server == "pyright" then
     local pyright_opts = require "user.lsp.settings.pyright"
     opts = vim.tbl_deep_extend("force", pyright_opts, opts)
