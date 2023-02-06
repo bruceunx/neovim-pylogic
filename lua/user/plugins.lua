@@ -129,6 +129,7 @@ packer.startup({
 		use({
 			"folke/which-key.nvim",
 		})
+		use( {"mfussenegger/nvim-jdtls", ft = { "java" }})
 		--- pretter html js
 		-- use {
 		--     "MunifTanjim/prettier.nvim",

@@ -10,9 +10,9 @@ local servers = {
   "tsserver",
   "pyright",
   "clangd",
-  "gopls",
-  -- "marksman",
-  "rust_analyzer",
+  "jdtls",
+  "marksman",
+  "kotlin_language_server",
 }
 
 lsp_installer.setup()
@@ -46,6 +46,12 @@ for _, server in pairs(servers) do
   if server == "pyright" then
     local pyright_opts = require "user.lsp.settings.pyright"
     opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+  end
+
+
+  if server == "jdtls" then
+    local jdtls_opts = require "user.lsp.settings.jdtls"
+    opts = vim.tbl_deep_extend("force", jdtls_opts, opts)
   end
 
   if server == "html" then

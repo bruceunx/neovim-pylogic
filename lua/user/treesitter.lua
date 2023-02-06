@@ -5,7 +5,7 @@ end
 
 configs.setup({
         -- 安装的高亮支持来源
-        ensure_installed = {"c", "cpp", "rust", "javascript", "markdown", "python", "html", "css", "lua", "go"},
+        ensure_installed = {"c", "cpp", "kotlin", "javascript", "markdown", "python", "html", "css", "lua", "go", "java"},
         -- 同步下载高亮支持
         sync_install = true,
         -- 高亮相关
