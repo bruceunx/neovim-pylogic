@@ -49,10 +49,10 @@ for _, server in pairs(servers) do
   end
 
 
-  if server == "jdtls" then
-    local jdtls_opts = require "user.lsp.settings.jdtls"
-    opts = vim.tbl_deep_extend("force", jdtls_opts, opts)
-  end
+  --[[ if server == "jdtls" then ]]
+  --[[   local jdtls_opts = require "user.lsp.settings.jdtls" ]]
+  --[[   opts = vim.tbl_deep_extend("force", jdtls_opts, opts) ]]
+  --[[ end ]]
 
   if server == "html" then
     local html_opts = require "user.lsp.settings.html"

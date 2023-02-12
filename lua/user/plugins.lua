@@ -33,16 +33,6 @@ packer.startup({
 			--     "p00f/nvim-ts-rainbow" -- 彩虹括号
 			-- },
 		})
-		-- 优秀的暗色主题
-		--            use {
-		--                "catppuccin/nvim",
-		--                -- 改个别名，因为它的名字是 nvim，可能会冲突
-		--                as = "catppuccin",
-		--                config = function()
-		--                    -- 插件加载完成后自动运行 lua/conf/catppuccin.lua 文件中的代码
-		--                    require("conf.catppuccin")
-		--                end
-		--            }
 		-- 模糊查找
 		use({
 			"nvim-telescope/telescope.nvim",
@@ -95,9 +85,6 @@ packer.startup({
 			"ellisonleao/gruvbox.nvim",
 			requires = { "rktjmp/lush.nvim" },
 		})
-		-- use {
-		--   "sainnhe/everforest",
-		-- }
 		-- 自动代码补全系列插件
 
 		use({
@@ -118,13 +105,6 @@ packer.startup({
 
 			},
 		})
-		-- 扩展 LSP 诊断
-		-- use {
-		--     "mfussenegger/nvim-lint",
-		--     config = function()
-		--         require("conf.nvim-lint")
-		--     end
-		-- }
 		---- 键位绑定器
 		use({
 			"folke/which-key.nvim",
@@ -152,17 +132,7 @@ packer.startup({
 		--     require('gitsigns').setup()
 		--   end
 		-- }
-		-- markdown preview
-		-- use({ "ellisonleao/glow.nvim" })
-		--  use {
-		--      "sbdchd/neoformat",
-		--      config = function()
-		--          require("conf.neoformat")
-		--      end
-		--  }
 		--
-		--[[ use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, }) ]]
-		-- use{"folke/tokyonight.nvim"}
 		-- 安装其它插件
 
 		 use({
