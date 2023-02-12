@@ -9,11 +9,11 @@ packer.startup({
 		use({
 			"wbthomason/packer.nvim",
 		})
-		use({"nvim-lua/popup.nvim"})
+		--[[ use({"nvim-lua/popup.nvim"}) ]]
 		use({"JoosepAlviste/nvim-ts-context-commentstring"})
-		use({
-			"yianwillis/vimcdoc",
-		})
+		--[[ use({ ]]
+		--[[ 	"yianwillis/vimcdoc", ]]
+		--[[ }) ]]
 		use({
 			"nvim-lualine/lualine.nvim",
 		})
@@ -129,7 +129,7 @@ packer.startup({
 		use({
 			"folke/which-key.nvim",
 		})
-		use( {"mfussenegger/nvim-jdtls", ft = { "java" }})
+		use( {"mfussenegger/nvim-jdtls", disable = true,ft = "java"})
 		--- pretter html js
 		-- use {
 		--     "MunifTanjim/prettier.nvim",
@@ -161,12 +161,12 @@ packer.startup({
 		--      end
 		--  }
 		--
-		use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+		--[[ use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, }) ]]
 		-- use{"folke/tokyonight.nvim"}
 		-- 安装其它插件
 
-	     use({
-		 "iamcco/markdown-preview.nvim"
+		 use({
+			 "iamcco/markdown-preview.nvim"
 	     })
     -- DAP
       use { "mfussenegger/nvim-dap"}

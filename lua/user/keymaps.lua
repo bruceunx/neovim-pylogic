@@ -18,6 +18,10 @@ keymap('n', 'L', '5l', {})
 keymap('n', 'H', '5h', {})
 keymap('i', 'jj', '<ESC>', {})
 keymap('i', 'jk', '<ESC>', {})
+
+keymap('n', 'vv', ':vsplit<CR>', {})
+keymap('n', 'ss', ':split<CR>', {})
+
 local opts = { noremap = true, silent = true }
 -- Normal --
 -- Better window navigation
