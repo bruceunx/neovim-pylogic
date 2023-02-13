@@ -48,10 +48,3 @@ function _FLOAT_TOGGLE()
   floatTerm:toggle()
 end
 
-vim.keybinds.gmap("t", "<C-\\>", "<C-\\><C-n>:close<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<C-\\>", "<cmd>exe v:count1 . 'ToggleTerm'<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<leader>o", "<cmd>lua _FLOAT_TOGGLE()<CR>", vim.keybinds.opts)
-vim.keybinds.gmap("n", "<leader>g", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", vim.keybinds.opts)
--- 打开或关闭所有终端
---[[ vim.keybinds.gmap("t", "<Esc>", "<C-\\><C-n>", vim.keybinds.opts) ]]
---[[ vim.keybinds.gmap("n", "<leader>cc", "<cmd>ToggleTermToggleAll<CR>", vim.keybinds.opts) ]]
