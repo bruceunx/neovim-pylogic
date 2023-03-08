@@ -111,9 +111,12 @@ keymap("n", "<leader>fc", "<cmd>NvimTreeFindFile<CR>", opts)
 
 --toggle
 
+--[[ keymap("t", "<Esc>", "<C-\\><C-n><CR>", opts) ]]
 keymap("t", "<C-\\>", "<C-\\><C-n>:close<CR>", opts)
+keymap("t", "<C-]>", "<C-\\><C-n><CR>", opts)
+--[[ keymap("t", "<C-]>", "<C-\\><C-n>:close<CR>", opts) ]]
 keymap("n", "<C-\\>", "<cmd>exe v:count1 . 'ToggleTerm'<CR>", opts)
-keymap("n", "<leader>o", "<cmd>lua _FLOAT_TOGGLE()<CR>", opts)
+keymap("n", "<leader>t", "<cmd>lua _FLOAT_TOGGLE()<CR>", opts)
 keymap("n", "<leader>g", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 keymap("n", "<leader>cc", "<cmd>ToggleTermToggleAll<CR>", opts)
 --[[ vim.keybinds.gmap("t", "<Esc>", "<C-\\><C-n>", opts) ]]

@@ -5,14 +5,16 @@ end
 
 local servers = {
   --[[ "sumneko_lua", ]]
+  --[[ "kotlin_language_server", ]]
   "cssls",
   "html",
   "tsserver",
   "pyright",
   "clangd",
+  "gopls",
   "jdtls",
   "marksman",
-  "kotlin_language_server",
+  "csharp_ls",
 }
 
 lsp_installer.setup()
@@ -39,13 +41,20 @@ for _, server in pairs(servers) do
     local tsserver_opts = require "user.lsp.settings.tsserver"
     opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
   end
-  --[[ if server == "gopls" then ]]
-  --[[   local gopls_opts = require "user.lsp.settings.gopls" ]]
-  --[[   opts = vim.tbl_deep_extend("force", tsserver_opts, opts) ]]
-  --[[ end ]]
+
+  if server == "gopls" then
+    local gopls_opts = require "user.lsp.settings.gopls"
+    opts = vim.tbl_deep_extend("force", gopls_opts, opts)
+  end
+
   if server == "pyright" then
     local pyright_opts = require "user.lsp.settings.pyright"
     opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+  end
+
+  if server == "csharp-ls" then
+    local cs_opts = require "user.lsp.settings.csharp"
+    opts = vim.tbl_deep_extend("force", cs_opts, opts)
   end
 
 

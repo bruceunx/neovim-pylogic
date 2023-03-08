@@ -4,6 +4,11 @@ require("nvim-tree").setup(
         -- auto_close = false,
         auto_reload_on_write = true,
         -- 视图
+				actions = {
+					open_file = {
+						quit_on_open = false,
+					}
+				},
         view = {
             -- 宽度
             width = 30,
