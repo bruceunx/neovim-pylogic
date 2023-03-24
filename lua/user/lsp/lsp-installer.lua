@@ -12,9 +12,9 @@ local servers = {
   "pyright",
   "clangd",
   "gopls",
-  "jdtls",
+ -- "jdtls",
   "marksman",
-  "csharp_ls",
+  -- "csharp_ls",
 }
 
 lsp_installer.setup()
