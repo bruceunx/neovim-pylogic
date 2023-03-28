@@ -59,3 +59,5 @@ keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 keymap("v", "p", '"_dP', opts)
 
 keymap("n", "<leader>cs", "<cmd>set spell!<CR>", opts) 
+
+

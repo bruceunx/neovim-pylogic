@@ -109,14 +109,15 @@ keymap("n", "<leader>fc", "<cmd>NvimTreeFindFile<CR>", opts)
 -- R     ：刷新资源管理器
 -- 另外，文件资源管理器操作和操作文档方式一致，可按 / ? 进行搜索
 
---toggle
+--open floaterm with lazygit
+keymap("n", "<leader>g", "<cmd>FloatermNew --height=0.77 --width=0.7 lazygit<CR>", opts)
 
---[[ keymap("t", "<Esc>", "<C-\\><C-n><CR>", opts) ]]
-keymap("t", "<C-\\>", "<C-\\><C-n>:close<CR>", opts)
-keymap("t", "<C-]>", "<C-\\><C-n><CR>", opts)
---[[ keymap("t", "<C-]>", "<C-\\><C-n>:close<CR>", opts) ]]
-keymap("n", "<C-\\>", "<cmd>exe v:count1 . 'ToggleTerm'<CR>", opts)
-keymap("n", "<leader>t", "<cmd>lua _FLOAT_TOGGLE()<CR>", opts)
-keymap("n", "<leader>g", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
-keymap("n", "<leader>cc", "<cmd>ToggleTermToggleAll<CR>", opts)
---[[ vim.keybinds.gmap("t", "<Esc>", "<C-\\><C-n>", opts) ]]
+-- keymap("t", "<Esc>", "<C-\\><C-n><CR>", opts)
+-- keymap("t", "<C-\\>", "<C-\\><C-n>:close<CR>", opts)
+-- keymap("t", "<C-]>", "<C-\\><C-n><CR>", opts)
+-- keymap("t", "<C-]>", "<C-\\><C-n>:close<CR>", opts)
+-- keymap("n", "<C-\\>", "<cmd>exe v:count1 . 'ToggleTerm'<CR>", opts)
+-- keymap("n", "<leader>t", "<cmd>lua _FLOAT_TOGGLE()<CR>", opts)
+-- keymap("n", "<leader>g", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
+-- keymap("n", "<leader>cc", "<cmd>ToggleTermToggleAll<CR>", opts)
+-- vim.keybinds.gmap("t", "<Esc>", "<C-\\><C-n>", opts

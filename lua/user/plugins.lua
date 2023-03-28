@@ -60,9 +60,10 @@ packer.startup({
 			"norcalli/nvim-colorizer.lua",
 		})
 		-- 内置终端
-		use({
-			"akinsho/toggleterm.nvim",
-		})
+		-- use({
+		-- 	"akinsho/toggleterm.nvim",
+		-- })
+		use 'voldikss/vim-floaterm'
 		-- LSP 基础服务
 		use({
 			"neovim/nvim-lspconfig",
