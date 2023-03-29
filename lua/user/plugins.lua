@@ -9,11 +9,8 @@ packer.startup({
 		use({
 			"wbthomason/packer.nvim",
 		})
-		--[[ use({"nvim-lua/popup.nvim"}) ]]
+		--use({"nvim-lua/popup.nvim"})
 		use({"JoosepAlviste/nvim-ts-context-commentstring"})
-		--[[ use({ ]]
-		--[[ 	"yianwillis/vimcdoc", ]]
-		--[[ }) ]]
 		use({
 			"nvim-lualine/lualine.nvim",
 		})
@@ -73,6 +70,9 @@ packer.startup({
 		use({
 			"williamboman/nvim-lsp-installer",
 		})
+
+		-- install tmux vim navigator
+		use({'christoomey/vim-tmux-navigator'})
 
 		-- LSP UI 美化
 		use({

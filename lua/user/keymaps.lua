@@ -110,7 +110,10 @@ keymap("n", "<leader>fc", "<cmd>NvimTreeFindFile<CR>", opts)
 -- 另外，文件资源管理器操作和操作文档方式一致，可按 / ? 进行搜索
 
 --open floaterm with lazygit
+keymap("n", "<leader>t", "<cmd>FloatermNew --height=0.77 --width=0.7<CR>", opts)
 keymap("n", "<leader>g", "<cmd>FloatermNew --height=0.77 --width=0.7 lazygit<CR>", opts)
+keymap("t", "<leader>i", "<cmd>FloatermToggle<CR>", opts)
+keymap("n", "<leader>i", "<cmd>FloatermToggle<CR>", opts)
 
 -- keymap("t", "<Esc>", "<C-\\><C-n><CR>", opts)
 -- keymap("t", "<C-\\>", "<C-\\><C-n>:close<CR>", opts)
