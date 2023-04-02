@@ -25,20 +25,9 @@ packer.startup({
 		-- 语法高亮
 		use({
 			"nvim-treesitter/nvim-treesitter",
-			-- run = {":TSupdate"},
-			-- requires = {
-			--     "p00f/nvim-ts-rainbow" -- 彩虹括号
-			-- },
+		 	run = {":TSupdate"},
 		})
 		-- 模糊查找
-		use({
-			"nvim-telescope/telescope.nvim",
-			requires = {
-				"nvim-lua/plenary.nvim", -- Lua 开发模块
-				"BurntSushi/ripgrep", -- 文字查找
-				"sharkdp/fd", -- 文件查找
-			},
-		})
 		-- 显示缩进线
 		use({
 			"lukas-reineke/indent-blankline.nvim",
@@ -47,37 +36,28 @@ packer.startup({
 		use({
 			"windwp/nvim-autopairs",
 		})
-		--- 自动会话管理
-		-- 多光标模式
-		use({
-			"terryma/vim-multiple-cursors",
-		})
 		-- 显示网页色
 		use({
 			"norcalli/nvim-colorizer.lua",
 		})
-		-- 内置终端
-		-- use({
-		-- 	"akinsho/toggleterm.nvim",
-		-- })
 		use 'voldikss/vim-floaterm'
-		-- LSP 基础服务
-		use({
-			"neovim/nvim-lspconfig",
-		})
-
-		-- 自动安装 LSP
-		use({
-			"williamboman/nvim-lsp-installer",
-		})
 
 		-- install tmux vim navigator
 		use({'christoomey/vim-tmux-navigator'})
 
 		-- LSP UI 美化
 		use({
+			"nvim-telescope/telescope.nvim",
+			requires = {
+				"nvim-lua/plenary.nvim", -- Lua 开发模块
+				"BurntSushi/ripgrep", -- 文字查找
+				"sharkdp/fd", -- 文件查找
+			},
+		})
+		use({
 			"tami5/lspsaga.nvim",
 		})
+
 		use({
 			"sainnhe/gruvbox-material",
 			requires = { "rktjmp/lush.nvim" },
@@ -86,8 +66,8 @@ packer.startup({
 			"ellisonleao/gruvbox.nvim",
 			requires = { "rktjmp/lush.nvim" },
 		})
-		-- 自动代码补全系列插件
 
+		-- 自动代码补全系列插件
 		use({
 			"hrsh7th/nvim-cmp", -- 代码补全核心插件，下面都是增强补全的体验插件
 			requires = {
@@ -111,31 +91,20 @@ packer.startup({
 			"folke/which-key.nvim",
 		})
 		use( {"mfussenegger/nvim-jdtls", disable = true,ft = "java"})
-		--- pretter html js
-		-- use {
-		--     "MunifTanjim/prettier.nvim",
-		--     config = function()
-		--         require("conf.prettier")
-		--     end
-		-- }
 
-		-- 代码注释
 		use({
 			"numToStr/Comment.nvim",
 		})
+		use {
+				"williamboman/mason.nvim",
+				 run = ":MasonUpdate", -- :MasonUpdate updates registry contents
+				"williamboman/mason-lspconfig.nvim",
+				"neovim/nvim-lspconfig",
+		}
 
 		use({ "jose-elias-alvarez/null-ls.nvim" }) -- 代码格式化
 
-		-- gitsigns
-		-- use {
-		--   'lewis6991/gitsigns.nvim',
-		--   config = function()
-		--     require('gitsigns').setup()
-		--   end
-		-- }
-		--
 		-- 安装其它插件
-
 		 use({
 			 "iamcco/markdown-preview.nvim"
 	     })

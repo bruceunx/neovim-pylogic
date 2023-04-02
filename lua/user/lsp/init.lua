@@ -22,16 +22,6 @@ vim.diagnostic.config(
         update_in_insert = false
     }
 )
-require "user.lsp.lsp-installer"
+require "user.lsp.mason"
 require("user.lsp.handlers").setup()
-
---require'lspconfig'.ruff_lsp.setup{
---  init_options = {
---    settings = {
---      -- Any extra CLI arguments for `ruff` go here.
---      args = {},
---    }
---  }
---}
-
 require "user.lsp.null-ls"
