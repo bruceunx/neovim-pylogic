@@ -27,7 +27,9 @@ packer.startup({
 			"nvim-treesitter/nvim-treesitter",
 		 	run = {":TSupdate"},
 		})
-		-- 模糊查找
+		-- buffers
+		use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+
 		-- 显示缩进线
 		use({
 			"lukas-reineke/indent-blankline.nvim",

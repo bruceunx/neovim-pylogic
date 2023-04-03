@@ -18,6 +18,7 @@ else
 	require "user.lspsaga_config"
 	require "user.whichkey"
 	require "user.lualine"
+	require "user.bufferline"
 	require "user.lsp"
 	require "user.dap"
 end

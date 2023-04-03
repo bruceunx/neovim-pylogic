@@ -16,22 +16,14 @@ end
 dap_install.setup({})
 
 dap_install.config("python", {})
--- add other configs here
 
 dap.configurations.python = {
   {
-    -- The first three options are required by nvim-dap
-    type = 'python'; -- the type here established the link to the adapter definition: `dap.adapters.python`
+    type = 'python';
     request = 'launch';
     name = "Launch file";
-
-    -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
-
-    program = "${file}"; -- This configuration will launch the current file if used.
+    program = "${file}";
     pythonPath = function()
-      -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
-      -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
-      -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
       local cwd = vim.fn.getcwd()
       if vim.fn.executable(cwd .. '/venv/bin/python') == 1 then
         return cwd .. '/venv/bin/python'
@@ -46,14 +38,31 @@ dap.configurations.python = {
 
 dap.adapters.lldb = {
   type = 'executable',
-  command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
+  command = '/usr/bin/lldb-vscode',
   name = 'lldb'
 }
 
+local install_root_dir = vim.fn.stdpath("data") .. "/mason"
+local extension_path = install_root_dir .. "/packages/codelldb/extension/"
+local codelldb_path = extension_path .. "adapter/codelldb"
+
+dap.adapters.codelldb = {
+	type = "server",
+	port = "${port}",
+	executable = {
+		command = codelldb_path,
+		args = { "--port", "${port}" },
+
+		-- On windows you may have to uncomment this:
+		-- detached = false,
+	},
+}
+
+
 local lldb = {
 	name = "Launch lldb",
-	type = "lldb", -- matches the adapter
-	request = "launch", -- could also attach to a currently running process
+	type = "lldb", --lldb or codelldb
+	request = "launch",
 	program = function()
 		return vim.fn.input(
 			"Path to executable: ",
@@ -68,7 +77,7 @@ local lldb = {
 }
 
 dap.configurations.cpp = {
-	lldb -- different debuggers or more configurations can be used here
+	lldb
 }
 
 -- dap.configurations.cpp = {
