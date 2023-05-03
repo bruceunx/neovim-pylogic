@@ -8,7 +8,8 @@ local servers = {
   "cssls",
   "marksman",
 
-  "pyright",
+  -- "pyright",
+  -- "pylyzer",
   "gopls",
 
   "clangd",
@@ -60,6 +61,11 @@ for _, server in pairs(servers) do
   if server == "gopls" then
     local gopls_opts = require "user.lsp.settings.gopls"
     opts = vim.tbl_deep_extend("force", gopls_opts, opts)
+  end
+
+  if server == "marksman" then
+    local markman_opts = require "user.lsp.settings.markman"
+    opts = vim.tbl_deep_extend("force", markman_opts, opts)
   end
 
   if server == "pyright" then

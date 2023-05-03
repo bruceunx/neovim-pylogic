@@ -112,7 +112,7 @@ keymap("n", "<leader>fc", "<cmd>NvimTreeFindFile<CR>", opts)
 --open floaterm with lazygit
 keymap("n", "<leader>t", "<cmd>FloatermNew --height=0.77 --width=0.7<CR>", opts)
 keymap("n", "<leader>g", "<cmd>FloatermNew --height=0.77 --width=0.7 lazygit<CR>", opts)
-keymap("t", "<leader>i", "<cmd>FloatermToggle<CR>", opts)
+keymap("t", "<leader>\\", "<cmd>FloatermToggle<CR>", opts)
 keymap("n", "<leader>i", "<cmd>FloatermToggle<CR>", opts)
 
 -- DAP
@@ -140,7 +140,9 @@ keymap("n", "<leader>b1", "<cmd>BufferLineGoToBuffer 1<cr>", opts)
 keymap("n", "<leader>b2", "<cmd>BufferLineGoToBuffer 2<cr>", opts)
 keymap("n", "<leader>b3", "<cmd>BufferLineGoToBuffer 3<cr>", opts)
 keymap("n", "<leader>b4", "<cmd>BufferLineGoToBuffer 4<cr>", opts)
-keymap("n", "<leader>bl", "<cmd>BufferLineCirclrNext<cr>", opts)
-keymap("n", "<leader>bh", "<cmd>BufferLineCirclrPrev<cr>", opts)
-keymap("n", "<leader>bc", "<cmd>BufferLineCloseLeft<cr><cmd>BufferLineCloseRight<cr>", opts)
+keymap("n", "<leader>b5", "<cmd>BufferLineGoToBuffer 5<cr>", opts)
+keymap("n", "<leader>bl", "<cmd>BufferLineCycleNext<cr>", opts)
+keymap("n", "<leader>bh", "<cmd>BufferLineCyclePrev<cr>", opts)
+keymap("n", "<leader>bx", ":%bdelete<cr>", opts)
+keymap("n", "<leader>bc", ":bd<cr>", opts)
 
