@@ -9,6 +9,7 @@ packer.startup({
 		use({
 			"wbthomason/packer.nvim",
 		})
+		use 'famiu/bufdelete.nvim'
 		--use({"nvim-lua/popup.nvim"})
 		use({"JoosepAlviste/nvim-ts-context-commentstring"})
 		use({

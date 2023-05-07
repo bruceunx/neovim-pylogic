@@ -20,6 +20,7 @@ null_ls.setup {
 		formatting.ruff,
     formatting.yapf,
 		diagnostics.ruff,
+		diagnostics.mypy,
 		diagnostics.eslint,
   },
 }
