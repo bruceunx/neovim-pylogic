@@ -136,13 +136,10 @@ keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 -- vim.keybinds.gmap("t", "<Esc>", "<C-\\><C-n>", opts
 
 -- bufferlne
-keymap("n", "<leader>b1", "<cmd>BufferLineGoToBuffer 1<cr>", opts)
-keymap("n", "<leader>b2", "<cmd>BufferLineGoToBuffer 2<cr>", opts)
-keymap("n", "<leader>b3", "<cmd>BufferLineGoToBuffer 3<cr>", opts)
-keymap("n", "<leader>b4", "<cmd>BufferLineGoToBuffer 4<cr>", opts)
-keymap("n", "<leader>b5", "<cmd>BufferLineGoToBuffer 5<cr>", opts)
+keymap("n", "<leader>bp", "<cmd>BufferLinePick<cr>", opts)
+keymap("n", "<leader>bc", "<cmd>BufferLinePickClose<cr>", opts)
 keymap("n", "<leader>bl", "<cmd>BufferLineCycleNext<cr>", opts)
+keymap("n", "<leader>bL", "<cmd>BufferLineCloseRight<cr>", opts)
 keymap("n", "<leader>bh", "<cmd>BufferLineCyclePrev<cr>", opts)
-keymap("n", "<leader>bx", ":%bdelete<cr>", opts)
-keymap("n", "<leader>bc", ":bd<cr>", opts)
+keymap("n", "<leader>bH", "<cmd>BufferLineCloseLeft<cr>", opts)
 
