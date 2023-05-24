@@ -5,16 +5,17 @@ end
 local servers = {
   "tsserver",
   "html",
-  "cssls",
+  -- "cssls",
+	"tailwindcss",
   "marksman",
 
   "pyright",
   -- "pylyzer",
-  "gopls",
+  -- "gopls",
 
   "clangd",
-  "rust_analyzer",
-  "omnisharp",
+  -- "rust_analyzer",
+  -- "omnisharp",
  -- "jdtls",
 }
 

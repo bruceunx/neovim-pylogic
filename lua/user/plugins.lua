@@ -70,6 +70,11 @@ packer.startup({
 			requires = { "rktjmp/lush.nvim" },
 		})
 
+		use {
+			'svrana/neosolarized.nvim',
+			requires = { 'tjdevries/colorbuddy.nvim' }
+		}
+
 		-- 自动代码补全系列插件
 		use({
 			"hrsh7th/nvim-cmp", -- 代码补全核心插件，下面都是增强补全的体验插件
