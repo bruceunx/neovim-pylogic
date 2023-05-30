@@ -10,13 +10,10 @@ local servers = {
   "marksman",
 
   "pyright",
-  -- "pylyzer",
-  -- "gopls",
+  "gopls",
 
   "clangd",
-  -- "rust_analyzer",
-  -- "omnisharp",
- -- "jdtls",
+  "rust_analyzer",
 }
 
 local settings = {
@@ -38,8 +35,6 @@ require("mason-lspconfig").setup({
 	automatic_installation = true,
 })
 
-
--- lsp_installer.setup()
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status_ok then
@@ -74,26 +69,10 @@ for _, server in pairs(servers) do
     opts = vim.tbl_deep_extend("force", pyright_opts, opts)
   end
 
-  if server == "pylyzer" then
-    local pylyzer_opts = require "user.lsp.settings.pylyzer"
-    opts = vim.tbl_deep_extend("force", pylyzer_opts, opts)
-  end
-
-  if server == "omnisharp" then
-    local cs_opts = require "user.lsp.settings.omnisharp"
-    opts = vim.tbl_deep_extend("force", cs_opts, opts)
-  end
-
-  if server == "rust_analyzer" then
-    local rust_opts = require "user.lsp.settings.rust"
-    opts = vim.tbl_deep_extend("force", rust_opts, opts)
-  end
-
-
-   if server == "jdtls" then
-     local jdtls_opts = require "user.lsp.settings.jdtls"
-     opts = vim.tbl_deep_extend("force", jdtls_opts, opts)
-   end
+  -- if server == "rust_analyzer" then
+  --   local rust_opts = require "user.lsp.settings.rust"
+  --   opts = vim.tbl_deep_extend("force", rust_opts, opts)
+  -- end
 
   if server == "html" then
     local html_opts = require "user.lsp.settings.html"
