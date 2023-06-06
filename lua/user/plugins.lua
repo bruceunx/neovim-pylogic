@@ -54,7 +54,6 @@ packer.startup({
 
 			},
 		})
-		-- use( {"mfussenegger/nvim-jdtls", disable = true,ft = "java"})
 	end,
 	config = {
 		display = {
