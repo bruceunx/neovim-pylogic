@@ -22,7 +22,7 @@ packer.startup({
 		use {"akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" }
 		use { "sainnhe/gruvbox-material", requires =  "rktjmp/lush.nvim"  }
 		use {"kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" }
-		use {"nvim-treesitter/nvim-treesitter", run = ":TSupdate", }
+		use {"nvim-treesitter/nvim-treesitter"}
 		use {
 				"williamboman/mason.nvim",
 				 run = ":MasonUpdate", -- :MasonUpdate updates registry contents
@@ -45,11 +45,11 @@ packer.startup({
 				{ "hrsh7th/cmp-vsnip" },
 				{ "hrsh7th/cmp-nvim-lsp" },
 				{ "hrsh7th/cmp-path" },
-				{ "hrsh7th/cmp-buffer" },
+				-- { "hrsh7th/cmp-buffer" },
 				{ "hrsh7th/cmp-cmdline" },
-				{ "f3fora/cmp-spell" },
-				{ "rafamadriz/friendly-snippets" },
-				{ "lukas-reineke/cmp-under-comparator" },
+				-- { "f3fora/cmp-spell" },
+				-- { "rafamadriz/friendly-snippets" },
+				-- { "lukas-reineke/cmp-under-comparator" },
 				{ "tzachar/cmp-tabnine", run = "./install.sh" },
 
 			},

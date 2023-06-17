@@ -4,87 +4,102 @@ if not cmp_status_ok then
 	return
 end
 
+local source_mapping = {
+	buffer = "[Buffer]",
+	nvim_lsp = "[LSP]",
+	nvim_lua = "[Lua]",
+	cmp_tabnine = "[TN]",
+	path = "[Path]",
+}
+
 cmp.setup(
-    ---@diagnostic disable-next-line: redundant-parameter
     {
-        -- 指定补全引擎
         snippet = {
             expand = function(args)
-                -- 使用 vsnip 引擎
                 vim.fn["vsnip#anonymous"](args.body)
             end
         },
-        -- 指定补全源（安装了补全源插件就在这里指定）
         sources = cmp.config.sources(
             {
                 {name = "vsnip"},
                 {name = "nvim_lsp"},
-                {name = "path"},
-                {name = "buffer"},
-                -- {name = "cmdline"},
-                {name = "spell"},
-                {name = "cmp_tabnine"}
+                -- {name = "buffer"},
+                {name = "cmdline"},
+                -- {name = "spell"},
+                {name = "cmp_tabnine"},
+                {name = "path"}
             }
         ),
-        -- 格式化补全菜单
-        formatting = {
-            format = lspkind.cmp_format(
-                {
-                    with_text = true,
-                    maxwidth = 50,
-                    before = function(entry, vim_item)
-                        vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
-                        return vim_item
-                    end
-                }
-            )
-        },
-        -- 对补全建议排序
+				formatting = {
+						format = function(entry, vim_item)
+							-- if you have lspkind installed, you can use it like
+							-- in the following line:
+							vim_item.kind = lspkind.symbolic(vim_item.kind, {mode = "symbol"})
+							vim_item.menu = source_mapping[entry.source.name]
+							if entry.source.name == "cmp_tabnine" then
+								local detail = (entry.completion_item.labelDetails or {}).detail
+								vim_item.kind = ""
+								if detail and detail:find('.*%%.*') then
+									vim_item.kind = vim_item.kind .. ' ' .. detail
+								end
+
+								if (entry.completion_item.data or {}).multiline then
+									vim_item.kind = vim_item.kind .. ' ' .. '[ML]'
+								end
+							end
+							local maxwidth = 80
+							vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)
+							return vim_item
+						end,
+					},
+        -- formatting = {
+        --     format = lspkind.cmp_format(
+        --         {
+        --             with_text = true,
+        --             maxwidth = 50,
+        --             before = function(entry, vim_item)
+        --                 vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
+        --                 return vim_item
+        --             end
+        --         }
+        --     )
+        -- },
         sorting = {
             comparators = {
                 cmp.config.compare.offset,
                 cmp.config.compare.exact,
                 cmp.config.compare.score,
                 cmp.config.compare.recently_used,
-                require("cmp-under-comparator").under,
+--                require("cmp-under-comparator").under,
                 require("cmp_tabnine.compare"),
-                cmp.config.compare.kind,
-                cmp.config.compare.sort_text,
-                cmp.config.compare.length,
-                cmp.config.compare.order
+                -- cmp.config.compare.kind,
+                -- cmp.config.compare.sort_text,
+                -- cmp.config.compare.length,
+                -- cmp.config.compare.order
             }
         },
-        -- 绑定补全相关的按键
         mapping = {
-            -- 上一个
-            -- ["<C-p>"] = cmp.mapping.select_prev_item(),
-	    ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
-	    ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
-            -- 下一个
-            -- ["<C-n>"] = cmp.mapping.select_next_item(),
-            -- 选择补全
-            ["<CR>"] = cmp.mapping.confirm(),
-            --  出现或关闭补全
-            ["<C-k>"] = cmp.mapping(
-                {
-                    i = function()
-                        if cmp.visible() then
-                            cmp.abort()
-                        else
-                            cmp.complete()
-                        end
-                    end,
-                    c = function()
-                        if cmp.visible() then
-                            cmp.close()
-                        else
-                            cmp.complete()
-                        end
-                    end
-                }
-            ),
-            -- 类似于 IDEA 的功能，如果没进入选择框，tab
-            -- 会选择下一个，如果进入了选择框，tab 会确认当前选择
+				['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
+				['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
+							["<CR>"] = cmp.mapping.confirm(),
+							["<C-k>"] = cmp.mapping(
+									{
+											i = function()
+													if cmp.visible() then
+															cmp.abort()
+													else
+															cmp.complete()
+													end
+											end,
+											c = function()
+													if cmp.visible() then
+															cmp.close()
+													else
+															cmp.complete()
+													end
+											end
+									}
+							),
             ["<Tab>"] = cmp.mapping(
                 function(fallback)
                     if cmp.visible() then
@@ -102,7 +117,6 @@ cmp.setup(
         }
     }
 )
--- 命令行 / 模式提示
 cmp.setup.cmdline(
     "/",
     {
@@ -111,7 +125,6 @@ cmp.setup.cmdline(
         }
     }
 )
--- 命令行 : 模式提示
 cmp.setup.cmdline(
     ":",
     {
@@ -125,8 +138,3 @@ cmp.setup.cmdline(
         )
     }
 )
--- cmp.setup.cmdline(':', {
---   sources = {
---     { name = 'cmdline' }
---   }
--- })

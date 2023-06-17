@@ -12,7 +12,7 @@ else
 	require "user.autopairs"
 	require "user.comment"
 	require "user.nvim-tree"
-	require "user.toggleterm"
+	-- require "user.toggleterm"
 	require "user.indentline"
 	require "user.web_color"
 	require "user.lspsaga_config"
