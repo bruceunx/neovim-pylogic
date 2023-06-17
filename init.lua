@@ -13,7 +13,7 @@ else
 	require "user.comment"
 	require "user.nvim-tree"
 	-- require "user.toggleterm"
-	require "user.indentline"
+	-- require "user.indentline"
 	require "user.web_color"
 	require "user.lspsaga_config"
 	require "user.whichkey"
