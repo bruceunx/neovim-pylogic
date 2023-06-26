@@ -66,9 +66,9 @@ cmp.setup(
         -- },
         sorting = {
             comparators = {
-                cmp.config.compare.offset,
-                cmp.config.compare.exact,
-                cmp.config.compare.score,
+                -- cmp.config.compare.offset,
+                -- cmp.config.compare.exact,
+                -- cmp.config.compare.score,
                 cmp.config.compare.recently_used,
 --                require("cmp-under-comparator").under,
                 require("cmp_tabnine.compare"),
