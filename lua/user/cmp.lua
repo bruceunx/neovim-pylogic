@@ -5,9 +5,9 @@ if not cmp_status_ok then
 end
 
 local source_mapping = {
-	buffer = "[Buffer]",
+	-- buffer = "[Buffer]",
 	nvim_lsp = "[LSP]",
-	nvim_lua = "[Lua]",
+	-- nvim_lua = "[Lua]",
 	cmp_tabnine = "[TN]",
 	path = "[Path]",
 }
@@ -66,9 +66,9 @@ cmp.setup(
         -- },
         sorting = {
             comparators = {
-                -- cmp.config.compare.offset,
-                -- cmp.config.compare.exact,
-                -- cmp.config.compare.score,
+                cmp.config.compare.offset,
+                cmp.config.compare.exact,
+                cmp.config.compare.score,
                 cmp.config.compare.recently_used,
 --                require("cmp-under-comparator").under,
                 require("cmp_tabnine.compare"),
