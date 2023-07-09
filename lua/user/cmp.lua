@@ -24,7 +24,7 @@ cmp.setup(
                 {name = "vsnip"},
                 {name = "nvim_lsp"},
                 -- {name = "buffer"},
-                {name = "cmdline"},
+                -- {name = "cmdline"},
                 -- {name = "spell"},
                 {name = "cmp_tabnine"},
                 {name = "path"}
