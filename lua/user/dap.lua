@@ -80,29 +80,12 @@ dap.configurations.cpp = {
 	lldb
 }
 
--- dap.configurations.cpp = {
---   {
---
---     name = 'Launch',
---     type = 'lldb',
---     request = 'launch',
---     program = function()
---       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
---     end,
---     cwd = '${workspaceFolder}',
---     stopOnEntry = false,
---     args = {},
---   },
--- }
-
--- If you want to use this for Rust and C, add something like this:
-
 dap.configurations.c = dap.configurations.cpp
 dap.configurations.rust = dap.configurations.cpp
 
 dap.adapters.coreclr = {
   type = 'executable',
-  command = '/usr/bin/netcoredbg',
+  command = '/Users/bruce/.local/share/nvim/mason/packages/netcoredbg/netcoredbg',
   args = {'--interpreter=vscode'}
 }
 
@@ -123,7 +106,6 @@ dapui.setup({
 	expand_lines = true,
 	icons = { expanded = "", collapsed = "", circular = "" },
 	mappings = {
-		-- Use a table to apply multiple mappings
 		expand = { "<CR>", "<2-LeftMouse>" },
 		open = "o",
 		remove = "d",
@@ -140,7 +122,7 @@ dapui.setup({
 				{ id = "watches", size = 0.25 },
 			},
 			size = 0.33,
-			position = "right",
+			position = "left",
 		},
 		{
 			elements = {
