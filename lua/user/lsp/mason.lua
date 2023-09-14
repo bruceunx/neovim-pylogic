@@ -5,15 +5,13 @@ end
 local servers = {
   "tsserver",
   "html",
-  -- "cssls",
 	"tailwindcss",
   "marksman",
-
   "pyright",
-  "gopls",
-
   "clangd",
-  "rust_analyzer",
+
+	"omnisharp",
+  "gopls",
 }
 
 local settings = {
@@ -69,14 +67,14 @@ for _, server in pairs(servers) do
     opts = vim.tbl_deep_extend("force", pyright_opts, opts)
   end
 
-  -- if server == "rust_analyzer" then
-  --   local rust_opts = require "user.lsp.settings.rust"
-  --   opts = vim.tbl_deep_extend("force", rust_opts, opts)
-  -- end
-
   if server == "html" then
     local html_opts = require "user.lsp.settings.html"
     opts = vim.tbl_deep_extend("force", html_opts, opts)
+  end
+
+  if server == "omnisharp" then
+    local cs_opts = require "user.lsp.settings.omnisharp"
+    opts = vim.tbl_deep_extend("force", cs_opts, opts)
   end
   lspconfig[server].setup(opts)
 end

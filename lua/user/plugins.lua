@@ -24,6 +24,7 @@ packer.startup({
 		use { "sainnhe/gruvbox-material", requires =  "rktjmp/lush.nvim"  }
 		use {"kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" }
 		use {"nvim-treesitter/nvim-treesitter"}
+		use "Hoffs/omnisharp-extended-lsp.nvim"
 		use {
 				"williamboman/mason.nvim",
 				 run = ":MasonUpdate", -- :MasonUpdate updates registry contents

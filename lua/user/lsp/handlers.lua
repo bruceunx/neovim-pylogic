@@ -1,22 +1,9 @@
 local M = {}
 
 M.setup = function()
-	-- local signs = {
-	--   { name = "DiagnosticSignError", text = "" },
-	--   { name = "DiagnosticSignWarn", text = "" },
-	--   { name = "DiagnosticSignHint", text = "" },
-	--   { name = "DiagnosticSignInfo", text = "" },
-	-- }
-	--
-	-- for _, sign in ipairs(signs) do
-	--   vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
-	-- end
 
 	local config = {
-		virtual_text = false, -- disable virtual text
-		-- signs = {
-		--   active = signs, -- show signs
-		-- },
+		virtual_text = false,
 		update_in_insert = true,
 		underline = true,
 		severity_sort = true,
@@ -46,10 +33,7 @@ local function lsp_keymaps(bufnr)
 	local keymap = vim.api.nvim_buf_set_keymap
 	keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 	keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-	-- keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-	--
 	keymap(bufnr, "n", "g[", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
-	-- 跳转到下一个问题（代替内置 LSP 的窗口，Lspsaga 让跳转问题更美观）
 	keymap(bufnr, "n", "g]", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 	keymap(bufnr, "n", "gh", "<cmd>Lspsaga hover_doc<CR>", opts)
 	keymap(bufnr, "n", "<leader>ca", "<cmd>Telescope lsp_code_actions theme=dropdown<CR>", opts)
@@ -59,9 +43,6 @@ local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 	keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 	keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-	-- keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
-	-- keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<cr>", opts)
-	-- keymap(bufnr, "n", "<leader>lI", "<cmd>LspInstallInfo<cr>", opts)
 	keymap(bufnr, "n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 	keymap(bufnr, "n", "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", opts)
 	keymap(bufnr, "n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", opts)
