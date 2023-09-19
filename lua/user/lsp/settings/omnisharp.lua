@@ -1,5 +1,5 @@
 local pid = vim.fn.getpid()
-local omnisharp_bin = "/Users/bruce/.local/share/nvim/mason/packages/omnisharp/omnisharp"
+local omnisharp_bin = "/Users/bruce/.local/share/nvim/mason/bin/omnisharp"
 
 return {
 		handlers = {
