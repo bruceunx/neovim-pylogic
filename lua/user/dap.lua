@@ -34,7 +34,7 @@ dap.adapters.python = function(cb, config)
   else
     cb({
       type = 'executable',
-      command = '/opt/homebrew/Caskroom/miniconda/base/envs/ds/bin/python',
+      command = '/opt/homebrew/Caskroom/miniconda/base/envs/ps/bin/python',
       args = { '-m', 'debugpy.adapter' },
       options = {
         source_filetype = 'python',
@@ -56,7 +56,7 @@ dap.configurations.python = {
       elseif vim.fn.executable(cwd .. '/.venv/bin/python') == 1 then
         return cwd .. '/.venv/bin/python'
       else
-        return '/opt/homebrew/Caskroom/miniconda/base/envs/ds/bin/python'
+        return '/opt/homebrew/Caskroom/miniconda/base/envs/ps/bin/python'
       end
     end;
   },
@@ -152,8 +152,9 @@ dapui.setup({
 		},
 		{
 			elements = {
-				{ id = "repl", size = 0.45 },
-				{ id = "console", size = 0.55 },
+				-- { id = "repl", size = 0.45 },
+				-- { id = "console", size = 0.55 },
+				{ id = "repl", size = 1.0 },
 			},
 			size = 0.27,
 			position = "bottom",

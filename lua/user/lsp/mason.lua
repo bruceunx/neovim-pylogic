@@ -4,14 +4,15 @@ end
 
 local servers = {
   "tsserver",
-  "html",
 	"tailwindcss",
   "marksman",
   "pyright",
   "clangd",
 
 	"omnisharp",
-  "gopls",
+	"rust_analyzer",
+  -- "gopls",
+  -- "html",
 }
 
 local settings = {

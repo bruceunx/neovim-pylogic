@@ -10,7 +10,7 @@ null_ls.setup {
   debug = false,
   sources = {
     formatting.prettier.with {
-      extra_filetypes = { "toml", "html", "htmldjango", "javascript", "typescript", "jsx", "markdown", "css", "json" , "go"},
+      extra_filetypes = { "toml", "html", "htmldjango", "javascript", "typescript", "jsx", "tsx", "markdown", "css", "json" , "rs"},
       extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
     },
     -- formatting.black.with { extra_args = { "--fast" } },
