@@ -9,7 +9,22 @@ return {
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
     "saadparwaiz1/cmp_luasnip",
-    { "tzachar/cmp-tabnine", build = "./install.sh" },
+    {
+      "tzachar/cmp-tabnine",
+      build = {
+        "./install.sh",
+        ":CmpTabnineHub",
+      },
+      dependencies = "hrsh7th/nvim-cmp",
+      opts = {
+        max_lines = 1000,
+        max_num_results = 3,
+        sort = true,
+      },
+      config = function(_, opts)
+        require("cmp_tabnine.config"):setup(opts)
+      end,
+    },
   },
 
    opts = function()
@@ -32,7 +47,7 @@ return {
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
-          ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+          ["<Tab>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
           ["<S-CR>"] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
@@ -46,9 +61,9 @@ return {
           -- {name = "vsnip"},
           -- {name = "cmdline"},
           -- {name = "spell"},
-          {name = "cmp_tabnine"},
-          { name = "nvim_lsp" },
           -- { name = "luasnip" },
+          { name = "cmp_tabnine" },
+          { name = "nvim_lsp" },
           { name = "buffer" },
           { name = "path" },
         }),

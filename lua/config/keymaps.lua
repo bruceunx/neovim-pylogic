@@ -20,11 +20,13 @@ keymap('n', 'ss', ':split<CR>', opts)
 keymap('n', '+', '<C-a>', opts)
 keymap('n', '-', '<C-x>', opts)
 keymap('n', '<C-a>', 'gg<S-v>G', opts)
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
-keymap('n', '<c-j>', '<c-w>j', opts)
+
+-- keymap("n", "<C-h>", "<C-w>h", opts)
+-- keymap("n", "<C-j>", "<C-w>j", opts)
+-- keymap("n", "<C-k>", "<C-w>k", opts)
+-- keymap("n", "<C-l>", "<C-w>l", opts)
+
+keymap("n", "<C-n>", "<cmd>TmuxNavigateDown<CR>", opts)
 --
 keymap("n", "F", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 keymap("n", "<CR>", "o<ESC>k", opts)
@@ -82,3 +84,4 @@ keymap("n", "<leader>bl", "<cmd>BufferLineCycleNext<cr>", opts)
 keymap("n", "<leader>bL", "<cmd>BufferLineCloseRight<cr>", opts)
 keymap("n", "<leader>bh", "<cmd>BufferLineCyclePrev<cr>", opts)
 keymap("n", "<leader>bH", "<cmd>BufferLineCloseLeft<cr>", opts)
+
