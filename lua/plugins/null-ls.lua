@@ -1,6 +1,5 @@
 return {
-  "jose-elias-alvarez/null-ls.nvim"
-  -- event = "LazyFile",
+  "jose-elias-alvarez/null-ls.nvim",
 }
 
 
