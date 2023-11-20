@@ -13,6 +13,8 @@ keymap('n', 'H', '5h', opts)
 keymap('i', 'jj', '<ESC>', opts)
 keymap('i', 'jk', '<ESC>', opts)
 
+keymap('n', 'P', 'J', opts)
+
 keymap('n', 'vv', ':vsplit<CR>', opts)
 keymap('n', 'ss', ':split<CR>', opts)
 
@@ -30,7 +32,6 @@ keymap("n", "<C-n>", "<cmd>TmuxNavigateDown<CR>", opts)
 --
 keymap("n", "F", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 keymap("n", "<CR>", "o<ESC>k", opts)
-keymap("n", "N", "J", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
