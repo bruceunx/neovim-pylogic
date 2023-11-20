@@ -55,6 +55,7 @@ return {
         "tsx",
         "typescript",
         "yaml",
+        "lua",
 			},
 
 			-- matchup = {

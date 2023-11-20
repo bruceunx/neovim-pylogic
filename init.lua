@@ -14,11 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-require("lazy").setup({
-  spec={
-    { import = "plugins" },
-  }
-})
 
 if vim.g.vscode then
   require "config.options"
@@ -30,9 +25,32 @@ else
   require "config.dap"
 end
 
+local plugins = "plugins"
+
+local opts = {
+	defaults = {
+		lazy = false,
+	},
+	rtp = {
+		disabled_plugins = {
+			"gzip",
+			"matchit",
+			"matchparen",
+			"netrw",
+			"netrwPlugin",
+			"tarPlugin",
+			"tohtml",
+			"tutor",
+			"zipPlugin",
+		},
+	},
+}
+
+require("lazy").setup(plugins, opts)
+
 require('tabnine').setup({
   disable_auto_comment=true,
-  accept_keymap="<Tab>",
+  accept_keymap="<C-t>",
   dismiss_keymap = "<C-]>",
   debounce_ms = 800,
   suggestion_color = {gui = "#808080", cterm = 244},
