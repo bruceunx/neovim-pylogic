@@ -1,7 +1,7 @@
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-keymap("", "<Space>", "<Nop>", opts)
+-- keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
 keymap('n', 'W', ':w<CR>', opts)
@@ -25,7 +25,7 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 keymap('n', '<c-j>', '<c-w>j', opts)
-
+--
 keymap("n", "F", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 keymap("n", "<CR>", "o<ESC>k", opts)
 keymap("n", "N", "J", opts)
@@ -69,10 +69,10 @@ keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
 
 --open floaterm with lazygit
-keymap("n", "<leader>t", "<cmd>FloatermNew --height=0.77 --width=0.7<CR>", opts)
+-- keymap("n", "<leader>t", "<cmd>FloatermNew --height=0.77 --width=0.7<CR>", opts)
 keymap("n", "<leader>g", "<cmd>FloatermNew --height=0.77 --width=0.7 lazygit<CR>", opts)
-keymap("t", "<leader>\\", "<cmd>FloatermToggle<CR>", opts)
-keymap("n", "<leader>i", "<cmd>FloatermToggle<CR>", opts)
+-- keymap("t", "<leader>\\", "<cmd>FloatermToggle<CR>", opts)
+-- keymap("n", "<leader>i", "<cmd>FloatermToggle<CR>", opts)
 
 
 -- bufferlne

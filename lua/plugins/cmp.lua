@@ -44,7 +44,7 @@ return {
         }),
         sources = cmp.config.sources({
           -- {name = "vsnip"},
-          {name = "cmdline"},
+          -- {name = "cmdline"},
           -- {name = "spell"},
           {name = "cmp_tabnine"},
           { name = "nvim_lsp" },
