@@ -14,17 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-
-if vim.g.vscode then
-  require "config.options"
-  require "config.keymaps"
-else
-  require "config.options"
-  require "config.keymaps"
-  require "config.lsp"
-  require "config.dap"
-end
-
 local plugins = "plugins"
 
 local opts = {
@@ -47,6 +36,16 @@ local opts = {
 }
 
 require("lazy").setup(plugins, opts)
+
+if vim.g.vscode then
+  require "config.options"
+  require "config.keymaps"
+else
+  require "config.options"
+  require "config.keymaps"
+  require "config.lsp"
+  require "config.dap"
+end
 
 require('tabnine').setup({
   disable_auto_comment=true,

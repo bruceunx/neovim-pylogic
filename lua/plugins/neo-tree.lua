@@ -39,7 +39,7 @@ return {
       },
       mappings = {
         ["<space>"] = "none",
-        ["<cr>"] = "open",
+        ["O"] = "open",
         ["S"] = "open_split",
         ["s"] = "open_vsplit",
       },

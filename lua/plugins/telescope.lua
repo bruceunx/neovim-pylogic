@@ -22,9 +22,11 @@ return {
     -- find
     { "<leader>fb", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
     { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+    { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Recent" },
+    { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Recent" },
     -- git
-    { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
-    { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "status" },
+    -- { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
+    -- { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "status" },
     -- search
     { '<leader>s"', "<cmd>Telescope registers<cr>", desc = "Registers" },
     { "<leader>sa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
