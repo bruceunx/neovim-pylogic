@@ -1,43 +1,33 @@
-local status_ok, lualine = pcall(require, "lualine")
-if not status_ok then
-  return
-end
+return {
+  "nvim-lualine/lualine.nvim",
+  event = "VeryLazy",
+  init = function()
+    vim.g.lualine_laststatus = vim.o.laststatus
+    if vim.fn.argc(-1) > 0 then
 
--- local hide_in_width = function()
---   return vim.fn.winwidth(0) > 80
--- end
---
--- local diagnostics = {
---   "diagnostics",
---   sources = { "nvim_diagnostic" },
---   sections = { "error", "warn" },
---   symbols = { error = " ", warn = " " },
---   colored = false,
---   always_visible = true,
--- }
---
--- local diff = {
---   "diff",
---   colored = false,
---   symbols = { added = "", modified = "", removed = "" }, -- changes diff symbols
---   cond = hide_in_width,
--- }
+      vim.o.statusline = " "
+    else
+      vim.o.laststatus = 0
+    end
+  end,
+  opts = function()
+    local lualine_require = require("lualine_require")
+    lualine_require.require = require
 
-local filetype = {
-  "filetype",
-  icons_enabled = false,
-}
+    -- local icons = require("lazyvim.config").icons
+    -- vim.o.laststatus = vim.g.lualine_laststatus
 
-local location = {
-  "location",
-  padding = 0,
-}
+	local filetype = {
+		"filetype",
+		icons_enabled = false,
+	}
 
--- local spaces = function()
---   return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
--- end
+	local location = {
+		"location",
+		padding = 0,
+	}
 
-lualine.setup {
+    return {
   options = {
     globalstatus = true,
     icons_enabled = false,
@@ -47,6 +37,14 @@ lualine.setup {
     disabled_filetypes = { "alpha", "dashboard" },
     always_divide_middle = true,
   },
+    tabline = {
+        lualine_a = {},
+        lualine_b = {'branch'},
+        lualine_c = {'filename'},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {}
+    },
   sections = {
     -- lualine_a = { "mode", "buffers" },
     lualine_a = { "mode"},
@@ -62,6 +60,9 @@ lualine.setup {
     },
     -- lualine_y = { location, "encoding", filetype },
     lualine_y = { "encoding", filetype },
+    lualine_z = {'lsp_progress'}, lualine_x = {'tabnine'},
     -- lualine_z = { "progress" },
   },
+}
+	end
 }

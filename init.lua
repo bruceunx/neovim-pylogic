@@ -1,25 +1,33 @@
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+require("lazy").setup({
+  spec={
+    { import = "plugins" },
+  }
+})
+
 if vim.g.vscode then
-	require "user.options"
-	require "user.keymaps_vs"
+  require "config.options"
+  require "config.keymaps"
 else
-	require "user.options"
-	require "user.keymaps"
-	require "user.plugins"
-	require "user.colorscheme"
-	require "user.cmp"
-	require "user.telescope"
-	require "user.treesitter"
-	require "user.autopairs"
-	require "user.comment"
-	require "user.nvim-tree"
-	-- require "user.indentline"
-	require "user.web_color"
-	require "user.lspsaga_config"
-	require "user.whichkey"
-	require "user.lualine"
-	require "user.bufferline"
-	require "user.lsp"
-	require "user.dap"
+  require "config.options"
+  require "config.keymaps"
+  require "config.lsp"
+  require "config.dap"
 end
 
 require('tabnine').setup({
@@ -31,3 +39,5 @@ require('tabnine').setup({
   exclude_filetypes = {"TelescopePrompt", "NvimTree"},
   log_file_path = nil, -- absolute path to Tabnine log file
 })
+
+

@@ -11,6 +11,6 @@ vim.diagnostic.config(
         update_in_insert = false,
     }
 )
-require "user.lsp.mason"
-require("user.lsp.handlers").setup()
-require "user.lsp.null-ls"
+require "config.lsp.mason"
+require("config.lsp.handlers").setup()
+require "config.lsp.null-ls"

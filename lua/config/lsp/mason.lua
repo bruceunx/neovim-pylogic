@@ -44,37 +44,37 @@ local opts = {}
 
 for _, server in pairs(servers) do
   opts = {
-    on_attach = require("user.lsp.handlers").on_attach,
-    capabilities = require("user.lsp.handlers").capabilities,
+    on_attach = require("config.lsp.handlers").on_attach,
+    capabilities = require("config.lsp.handlers").capabilities,
   }
 
   if server == "tsserver" then
-    local tsserver_opts = require "user.lsp.settings.tsserver"
+    local tsserver_opts = require "config.lsp.settings.tsserver"
     opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
   end
 
   if server == "gopls" then
-    local gopls_opts = require "user.lsp.settings.gopls"
+    local gopls_opts = require "config.lsp.settings.gopls"
     opts = vim.tbl_deep_extend("force", gopls_opts, opts)
   end
 
   if server == "marksman" then
-    local markman_opts = require "user.lsp.settings.markman"
+    local markman_opts = require "config.lsp.settings.markman"
     opts = vim.tbl_deep_extend("force", markman_opts, opts)
   end
 
   if server == "pyright" then
-    local pyright_opts = require "user.lsp.settings.pyright"
+    local pyright_opts = require "config.lsp.settings.pyright"
     opts = vim.tbl_deep_extend("force", pyright_opts, opts)
   end
 
   if server == "html" then
-    local html_opts = require "user.lsp.settings.html"
+    local html_opts = require "config.lsp.settings.html"
     opts = vim.tbl_deep_extend("force", html_opts, opts)
   end
 
   if server == "omnisharp" then
-    local cs_opts = require "user.lsp.settings.omnisharp"
+    local cs_opts = require "config.lsp.settings.omnisharp"
     opts = vim.tbl_deep_extend("force", cs_opts, opts)
   end
   lspconfig[server].setup(opts)
