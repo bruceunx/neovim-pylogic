@@ -39,17 +39,9 @@ return {
       },
       mappings = {
         ["<space>"] = "none",
-        ["o"] = "open",
+        ["O"] = {"open", nowait=true },
         ["s"] = "open_split",
         ["v"] = "open_vsplit",
-        ["h"] = { "show_help", nowait=false, config = { title = "Order by", prefix_key = "o" }},
-        ["hc"] = { "order_by_created", nowait = false },
-        ["hd"] = { "order_by_diagnostics", nowait = false },
-        ["hg"] = { "order_by_git_status", nowait = false },
-        ["hm"] = { "order_by_modified", nowait = false },
-        ["hn"] = { "order_by_name", nowait = false },
-        ["hs"] = { "order_by_size", nowait = false },
-        ["ht"] = { "order_by_type", nowait = false },
       },
     },
     default_component_configs = {
