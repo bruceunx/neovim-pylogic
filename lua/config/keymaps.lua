@@ -13,7 +13,7 @@ keymap('n', 'H', '5h', opts)
 keymap('i', 'jj', '<ESC>', opts)
 keymap('i', 'jk', '<ESC>', opts)
 
-keymap('n', 'P', 'J', opts)
+keymap('n', 'M', 'J', opts)
 
 keymap('n', 'vv', ':vsplit<CR>', opts)
 keymap('n', 'ss', ':split<CR>', opts)
