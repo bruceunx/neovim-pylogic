@@ -42,9 +42,9 @@ if vim.g.vscode then
   require "config.keymaps"
 else
   require "config.options"
-  require "config.keymaps"
   require "config.lsp"
   require "config.dap"
+  require "config.keymaps"
 end
 
 require('tabnine').setup({
