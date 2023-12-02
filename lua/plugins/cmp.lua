@@ -13,7 +13,6 @@ return {
       "tzachar/cmp-tabnine",
       build = {
         "./install.sh",
-        ":CmpTabnineHub",
       },
       dependencies = "hrsh7th/nvim-cmp",
       opts = {
