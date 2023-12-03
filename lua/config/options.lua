@@ -1,6 +1,6 @@
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.conceallevel = 0                        -- so that `` is visible in markdown files
-vim.opt.hidden = false
+vim.opt.hidden = true
 vim.opt.number = true
 vim.opt.syntax = "enable"
 vim.opt.filetype = "plugin"
