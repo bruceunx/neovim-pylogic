@@ -11,7 +11,7 @@ null_ls.setup {
   sources = {
     formatting.prettier.with {
       extra_filetypes = { "toml", "html", "htmldjango", "javascript", "typescript", "jsx", "tsx", "markdown", "css", "json" , "rs"},
-      extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+      -- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
     },
     -- formatting.black.with { extra_args = { "--fast" } },
 		 --   diagnostics.flake8,
