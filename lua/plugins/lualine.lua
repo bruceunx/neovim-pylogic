@@ -35,7 +35,7 @@ return {
         lualine_a = {'mode'},
         lualine_b = {'branch', 'diff', 'diagnostics'},
         lualine_c = {'filename'},
-        lualine_x = {'encoding', 'fileformat', 'filetype'},
+        lualine_x = { 'copilot' ,'encoding', 'fileformat', 'filetype' }, 
         -- lualine_a = { "mode"},
         -- lualine_b = {"branch"},
         -- lualine_c = { diagnostics },
@@ -47,8 +47,9 @@ return {
         --   path = 0 -- 0 = just filename, 1 = relative path, 2 = absolute path
         --   }
         -- },
-        lualine_y = { "encoding", filetype },
-        lualine_z = {'lsp_progress'}, lualine_x = {'tabnine'},
+        lualine_y = {'lsp_progress'},
+        lualine_y = { 'progress', "location" },
+        -- lualine_z = { 'location' }
     },
   }
 	end
