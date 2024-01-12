@@ -46,7 +46,6 @@ else
   require "config.dap"
   require "config.keymaps"
 end
-
 -- require('tabnine').setup({
 --   disable_auto_comment=true,
 --   accept_keymap="<C-t>",
