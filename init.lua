@@ -41,12 +41,5 @@ local opts = {
 }
 
 require("lazy").setup(opts)
-
-if vim.g.vscode then
-	require("config.options")
-	require("config.keymaps")
-else
-	require("config.options")
-	require("config.dap")
-	require("config.keymaps")
-end
+require("config.options")
+require("config.keymaps")
