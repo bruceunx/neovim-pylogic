@@ -17,6 +17,11 @@ vim.g.maplocalleader = " "
 local plugins = "plugins"
 
 local opts = {
+  spec = {
+    { "LazyVim/LazyVim" },
+    { import = "lazyvim.plugins.extras.lsp.none-ls" },
+    { import = "plugins" },
+  },
 	defaults = {
 		lazy = false,
 	},
@@ -35,7 +40,7 @@ local opts = {
 	},
 }
 
-require("lazy").setup(plugins, opts)
+require("lazy").setup(opts)
 
 if vim.g.vscode then
   require "config.options"
