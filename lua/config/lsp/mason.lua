@@ -1,35 +1,15 @@
-local status_ok, lsp_installer = pcall(require, "mason")
-if not status_ok then
-	return
-end
-
 local servers = {
 	"tsserver",
 	"tailwindcss",
 	"marksman",
 	"pyright",
 	"clangd",
-
 	"omnisharp",
 	"rust_analyzer",
 	-- "gopls",
-	-- "html",
 }
 
--- local settings = {
--- 	ui = {
--- 		border = "none",
--- 		icons = {
--- 			package_installed = "◍",
--- 			package_pending = "◍",
--- 			package_uninstalled = "◍",
--- 		},
--- 	},
--- 	log_level = vim.log.levels.INFO,
--- 	max_concurrent_installers = 4,
--- }
-
--- require("mason").setup(settings)
+require("mason").setup()
 require("mason-lspconfig").setup({
 	ensure_installed = servers,
 	automatic_installation = true,
@@ -42,10 +22,43 @@ end
 
 local opts = {}
 
+local function lsp_keymaps(bufnr)
+	local opts = { noremap = true, silent = true }
+	local keymap = vim.api.nvim_buf_set_keymap
+	keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+	keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+	keymap(bufnr, "n", "g[", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+	keymap(bufnr, "n", "g]", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+	keymap(bufnr, "n", "gh", "<cmd>Lspsaga hover_doc<CR>", opts)
+	keymap(bufnr, "n", "gv", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
+	keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+end
+
+local on_attach = function(client, bufnr)
+	if client.name == "tsserver" then
+		client.server_capabilities.document_formatting = false
+	end
+	if client.name == "gopls" then
+		client.server_capabilities.document_formatting = false
+	end
+
+	if client.name == "sumneko_lua" then
+		client.server_capabilities.document_formatting = false
+	end
+
+	if client.name == "html" or client.name == "htmldjango" then
+		client.server_capabilities.document_formatting = false
+	end
+	lsp_keymaps(bufnr)
+	require("illuminate").on_attach(client)
+end
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
 for _, server in pairs(servers) do
 	opts = {
-		on_attach = require("config.lsp.handlers").on_attach,
-		capabilities = require("config.lsp.handlers").capabilities,
+		on_attach = on_attach,
+		capabilities = capabilities,
 	}
 
 	if server == "tsserver" then
