@@ -19,7 +19,7 @@ local plugins = "plugins"
 local opts = {
 	spec = {
 		{ "LazyVim/LazyVim" },
-		{ import = "lazyvim.plugins.extras.lsp.none-ls" },
+		-- { import = "lazyvim.plugins.extras.lsp.none-ls" },
 		{ import = "plugins" },
 	},
 	defaults = {
