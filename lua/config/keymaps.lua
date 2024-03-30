@@ -57,6 +57,9 @@ keymap("n", "mvx", "<cmd>MarkdownPreviewStop<cr>", opts)
 
 -- Lsp
 -- keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+keymap("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+keymap("n", "g]", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+keymap("n", "g[", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
 
 --open floaterm with lazygit
 -- keymap("n", "<leader>g", "<cmd>FloatermNew --height=0.77 --width=0.7 lazygit<CR>", opts)

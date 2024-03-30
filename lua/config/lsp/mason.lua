@@ -6,7 +6,7 @@ local servers = {
 	"clangd",
 	"omnisharp",
 	"rust_analyzer",
-	-- "gopls",
+	"gopls",
 }
 
 require("mason").setup()
@@ -22,16 +22,12 @@ end
 
 local opts = {}
 
-local function lsp_keymaps(bufnr)
+local function lsp_keymajs(bufnr)
 	local opts = { noremap = true, silent = true }
 	local keymap = vim.api.nvim_buf_set_keymap
-	keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-	keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-	keymap(bufnr, "n", "g[", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
-	keymap(bufnr, "n", "g]", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
-	keymap(bufnr, "n", "gh", "<cmd>Lspsaga hover_doc<CR>", opts)
-	keymap(bufnr, "n", "gv", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
-	keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+	keymap(bufnr, "n", "gd", "<cmd>lua require'telescope.builtin'.lsp_definitions()<CR>", opts)
+	keymap(bufnr, "n", "gw", "<cmd>lua require'telescope.builtin'.diagnostics({ bufnr = 0})<CR>", opts)
+	keymap(bufnr, "n", "gr", "<cmd>lua require'telescope.builtin'.lsp_references()<CR>", opts)
 end
 
 local on_attach = function(client, bufnr)
