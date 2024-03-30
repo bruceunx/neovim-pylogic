@@ -22,14 +22,6 @@ end
 
 local opts = {}
 
-local function lsp_keymajs(bufnr)
-	local opts = { noremap = true, silent = true }
-	local keymap = vim.api.nvim_buf_set_keymap
-	keymap(bufnr, "n", "gd", "<cmd>lua require'telescope.builtin'.lsp_definitions()<CR>", opts)
-	keymap(bufnr, "n", "gw", "<cmd>lua require'telescope.builtin'.diagnostics({ bufnr = 0})<CR>", opts)
-	keymap(bufnr, "n", "gr", "<cmd>lua require'telescope.builtin'.lsp_references()<CR>", opts)
-end
-
 local on_attach = function(client, bufnr)
 	if client.name == "tsserver" then
 		client.server_capabilities.document_formatting = false
@@ -45,7 +37,6 @@ local on_attach = function(client, bufnr)
 	if client.name == "html" or client.name == "htmldjango" then
 		client.server_capabilities.document_formatting = false
 	end
-	lsp_keymaps(bufnr)
 	require("illuminate").on_attach(client)
 end
 

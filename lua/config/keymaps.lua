@@ -61,5 +61,11 @@ keymap("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 keymap("n", "g]", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 keymap("n", "g[", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
 
+keymap("n", "gd", "<cmd>lua require'telescope.builtin'.lsp_definitions()<CR>", opts)
+keymap("n", "gw", "<cmd>lua require'telescope.builtin'.diagnostics({ bufnr = 0})<CR>", opts)
+keymap("n", "gr", "<cmd>lua require'telescope.builtin'.lsp_references()<CR>", opts)
+keymap("n", "<leader>gi", "<cmd>lua require'telescope.builtin'.lsp_incoming_calls()<CR>", opts)
+keymap("n", "<leader>go", "<cmd>lua require'telescope.builtin'.lsp_outgoing_calls()<CR>", opts)
+keymap("n", "<leader>gq", "<cmd>lua require'telescope.builtin'.quickfix()<CR>", opts)
 --open floaterm with lazygit
 -- keymap("n", "<leader>g", "<cmd>FloatermNew --height=0.77 --width=0.7 lazygit<CR>", opts)
