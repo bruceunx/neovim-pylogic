@@ -14,8 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-local plugins = "plugins"
-
 local opts = {
 	spec = {
 		{ "LazyVim/LazyVim" },
@@ -43,3 +41,16 @@ local opts = {
 require("lazy").setup(opts)
 require("config.options")
 require("config.keymaps")
+
+local function sign_define(args)
+	vim.fn.sign_define(args.name, {
+		texthl = args.name,
+		text = args.text,
+		numhl = "",
+	})
+end
+
+sign_define({ name = "DiagnosticSignError", text = "✘" })
+sign_define({ name = "DiagnosticSignWarn", text = "▲" })
+sign_define({ name = "DiagnosticSignHint", text = "⚑" })
+sign_define({ name = "DiagnosticSignInfo", text = "»" })
