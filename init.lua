@@ -54,3 +54,9 @@ sign_define({ name = "DiagnosticSignError", text = "✘" })
 sign_define({ name = "DiagnosticSignWarn", text = "▲" })
 sign_define({ name = "DiagnosticSignHint", text = "⚑" })
 sign_define({ name = "DiagnosticSignInfo", text = "»" })
+
+vim.diagnostic.config({
+	virtual_text = {
+		source = "always",
+	},
+})
