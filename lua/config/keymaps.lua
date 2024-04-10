@@ -61,11 +61,28 @@ keymap("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 keymap("n", "g]", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 keymap("n", "g[", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
 
-keymap("n", "gd", "<cmd>lua require'telescope.builtin'.lsp_definitions()<CR>", opts)
+keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+
+keymap("n", "gd", "<cmd>lua require'telescope.builtin'.lsp_definitions({ jump_type='vsplit' })<CR>", opts)
 keymap("n", "gw", "<cmd>lua require'telescope.builtin'.diagnostics({ bufnr = 0})<CR>", opts)
 keymap("n", "gr", "<cmd>lua require'telescope.builtin'.lsp_references()<CR>", opts)
 keymap("n", "<leader>gi", "<cmd>lua require'telescope.builtin'.lsp_incoming_calls()<CR>", opts)
 keymap("n", "<leader>go", "<cmd>lua require'telescope.builtin'.lsp_outgoing_calls()<CR>", opts)
 keymap("n", "<leader>gq", "<cmd>lua require'telescope.builtin'.quickfix()<CR>", opts)
+
+keymap("n", "gcd", "<cmd>lua require'omnisharp_extended'.telescope_lsp_definition({ jump_type='vsplit' })<CR>", opts)
+keymap("n", "gcr", "<cmd>lua require'omnisharp_extended'.telescope_lsp_references({ jump_type='vsplit' })<CR>", opts)
+keymap(
+	"n",
+	"gcD",
+	"<cmd>lua require'omnisharp_extended'.telescope_lsp_type_definition({ jump_type='vsplit' })<CR>",
+	opts
+)
+keymap(
+	"n",
+	"gci",
+	"<cmd>lua require'omnisharp_extended'.telescope_lsp_implementation({ jump_type='vsplit' })<CR>",
+	opts
+)
 --open floaterm with lazygit
 -- keymap("n", "<leader>g", "<cmd>FloatermNew --height=0.77 --width=0.7 lazygit<CR>", opts)

@@ -37,7 +37,7 @@ local on_attach = function(client, bufnr)
 	if client.name == "html" or client.name == "htmldjango" then
 		client.server_capabilities.document_formatting = false
 	end
-	require("illuminate").on_attach(client)
+	-- require("illuminate").on_attach(client)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
