@@ -196,5 +196,23 @@ return {
 		{ "<leader>al", "<cmd>CopilotChatReset<cr>", desc = "CopilotChat - Clear buffer and chat history" },
 		-- Toggle Copilot Chat Vsplit
 		{ "<leader>av", "<cmd>CopilotChatToggle<cr>", desc = "CopilotChat - Toggle" },
+
+		-- Change GPT server keybinding
+		{
+			"<leader>ac",
+			function()
+				local input = vim.fn.input("Change gpt_server: 1 - Copilot, 2 - Gemini, 3 - Groq \n")
+				if input ~= "" then
+					if input == "1" then
+						require("CopilotChat").change_gpt("copilot")
+					elseif input == "2" then
+						require("CopilotChat").change_gpt("gemini")
+					else
+						require("CopilotChat").change_gpt("groq")
+					end
+				end
+			end,
+			desc = "CopilotChat - change gpt server",
+		},
 	},
 }
