@@ -84,5 +84,10 @@ keymap(
 	"<cmd>lua require'omnisharp_extended'.telescope_lsp_implementation({ jump_type='vsplit' })<CR>",
 	opts
 )
+
+-- CopilotChat
+keymap("v", "<leader>ae", "<cmd>CopilotChatExplain<cr>", opts)
+keymap("v", "<leader>ar", "<cmd>CopilotChatReview<cr>", opts)
+keymap("v", "<leader>at", "<cmd>CopilotChatTests<cr>", opts)
 --open floaterm with lazygit
 -- keymap("n", "<leader>g", "<cmd>FloatermNew --height=0.77 --width=0.7 lazygit<CR>", opts)
