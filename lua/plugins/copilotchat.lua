@@ -27,6 +27,7 @@ return {
 	opts = {
 		debug = true,
 		use_selection = true,
+		use_general_ai = false,
 		-- question_header = "## User ",
 		-- answer_header = "## Copilot ",
 		-- error_header = "## Error ",
@@ -221,7 +222,7 @@ return {
 		{
 			"<leader>as",
 			function()
-				local input = vim.fn.input("Use selection: 1 - use, 2 - no \n")
+				local input = vim.fn.input("Use selection: 1 - yes, 2 - no \n")
 				if input ~= "" then
 					if input == "1" then
 						require("CopilotChat").use_selection(true)
@@ -231,6 +232,20 @@ return {
 				end
 			end,
 			desc = "CopilotChat - Suppress selection",
+		},
+		{
+			"<leader>ag",
+			function()
+				local input = vim.fn.input("Use general ai: 1 - yes, 2 - no \n")
+				if input ~= "" then
+					if input == "1" then
+						require("CopilotChat").use_general_ai(true)
+					else
+						require("CopilotChat").use_general_ai(false)
+					end
+				end
+			end,
+			desc = "CopilotChat - Switch general ai or Code ai",
 		},
 	},
 }
