@@ -26,6 +26,7 @@ return {
 	},
 	opts = {
 		debug = true,
+		use_selection = true,
 		-- question_header = "## User ",
 		-- answer_header = "## Copilot ",
 		-- error_header = "## Error ",
@@ -216,6 +217,20 @@ return {
 				end
 			end,
 			desc = "CopilotChat - change gpt server",
+		},
+		{
+			"<leader>as",
+			function()
+				local input = vim.fn.input("Use selection: 1 - use, 2 - no \n")
+				if input ~= "" then
+					if input == "1" then
+						require("CopilotChat").use_selection(true)
+					else
+						require("CopilotChat").use_selection(false)
+					end
+				end
+			end,
+			desc = "CopilotChat - Suppress selection",
 		},
 	},
 }
