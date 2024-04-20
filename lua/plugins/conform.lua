@@ -16,6 +16,7 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			python = { "yapf" },
+			cs = { "csharpier" },
 			javascript = { "prettier" },
 			typescript = { "prettier" },
 			javascriptreact = { "prettier" },
@@ -23,6 +24,7 @@ return {
 			svelte = { "prettier" },
 			css = { "prettier" },
 			html = { "prettier" },
+			xml = { "xmlformat" },
 			json = { "prettier" },
 			yaml = { "prettier" },
 			markdown = { "prettier" },
