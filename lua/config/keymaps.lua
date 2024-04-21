@@ -38,10 +38,10 @@ keymap("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>", opts)
 keymap("n", "<CR>", "o<ESC>k", opts)
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+-- keymap("n", "<C-Up>", ":resize -2<CR>", opts)
+-- keymap("n", "<C-Down>", ":resize +2<CR>", opts)
+keymap("n", "<C-w><", ":vertical resize -10<CR>", opts)
+keymap("n", "<C-w>>", ":vertical resize +10<CR>", opts)
 -- Navigate buffers
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 -- Better paste

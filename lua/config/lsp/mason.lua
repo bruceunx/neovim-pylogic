@@ -77,5 +77,11 @@ for _, server in pairs(servers) do
 		local cs_opts = require("config.lsp.settings.omnisharp")
 		opts = vim.tbl_deep_extend("force", cs_opts, opts)
 	end
+
+	if server == "clangd" then
+		local c_opts = require("config.lsp.settings.clangd")
+		opts = vim.tbl_deep_extend("force", c_opts, opts)
+	end
+
 	lspconfig[server].setup(opts)
 end
