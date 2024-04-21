@@ -22,6 +22,7 @@ return {
 			javascriptreact = { "prettier" },
 			typescriptreact = { "prettier" },
 			svelte = { "prettier" },
+			proto = { "buf" },
 			css = { "prettier" },
 			html = { "prettier" },
 			xml = { "xmlformat" },
