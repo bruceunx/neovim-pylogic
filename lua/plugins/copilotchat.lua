@@ -26,8 +26,8 @@ return {
 	},
 	opts = {
 		debug = true,
-		use_selection = true,
-		use_general_ai = false,
+		use_selection = false,
+		use_general_ai = true,
 		-- question_header = "## User ",
 		-- answer_header = "## Copilot ",
 		-- error_header = "## Error ",
@@ -35,11 +35,20 @@ return {
 		-- prompts = prompts,
 		-- auto_follow_cursor = false, -- Don't follow the cursor after getting response
 		-- show_help = true, -- Show help in virtual text, set to true if that's 1st time using Copilot Chat
-		gpt_server = "groq", -- copilot or gemini or groq
+		gpt_server = "groq", -- copilot or gemini or groq or openai
 		copilot_token_url = "http://152.136.138.142:28443/copilot_internal/v2/token",
-		copilot_url = "https://api.githubcopilot.com/chat/completions",
-		gemini_url = "http://172.232.237.13:33333/gemini/chat",
-		groq_url = "http://172.232.237.13:33333/groq/chat",
+		groq = {
+			url = "http://172.232.237.13:33333/groq/chat",
+		},
+		copilot = {
+			url = "https://api.githubcopilot.com/chat/completions",
+		},
+		gemini = {
+			url = "http://172.232.237.13:33333/gemini/chat",
+		},
+		openai = {
+			url = "http://172.232.237.13:33333/openai_chat/chat",
+		},
 	},
 	config = function(_, opts)
 		-- local chat = require("CopilotChat")
@@ -206,14 +215,20 @@ return {
 		{
 			"<leader>ac",
 			function()
-				local input = vim.fn.input("Change gpt_server: 1 - Copilot, 2 - Gemini, 3 - Groq \n")
+				local input = vim.fn.input(
+					"Change gpt_server: 1 - Copilot, 2 - Gemini, 3 - Groq, 4 - openai or just type name \n"
+				)
 				if input ~= "" then
 					if input == "1" then
 						require("CopilotChat").change_gpt("copilot")
 					elseif input == "2" then
 						require("CopilotChat").change_gpt("gemini")
-					else
+					elseif input == "3" then
 						require("CopilotChat").change_gpt("groq")
+					elseif input == "4" then
+						require("CopilotChat").change_gpt("openai")
+					else
+						require("CopilotChat").change_gpt(input)
 					end
 				end
 			end,
