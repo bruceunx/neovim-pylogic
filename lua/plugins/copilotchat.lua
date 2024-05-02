@@ -46,6 +46,9 @@ return {
 		gemini = {
 			url = "http://172.232.237.13:33333/gemini/chat",
 		},
+		cohere = {
+			url = "http://172.232.237.13:33333/cohere/chat",
+		},
 		openai = {
 			url = "http://172.232.237.13:33333/openai_chat/chat",
 		},
@@ -219,7 +222,7 @@ return {
 			"<leader>ac",
 			function()
 				local input = vim.fn.input(
-					"Change gpt_server: 1 - Copilot, 2 - Gemini, 3 - Groq, 4 - openai, 5 - claude or just type name \n"
+					"Change gpt_server: 1 - Copilot, 2 - Gemini, 3 - Groq, 4 - openai, 5 - claude, 6 - cohere or just type name \n"
 				)
 				if input ~= "" then
 					if input == "1" then
@@ -232,6 +235,8 @@ return {
 						require("CopilotChat").change_gpt("openai")
 					elseif input == "5" then
 						require("CopilotChat").change_gpt("claude")
+					elseif input == "6" then
+						require("CopilotChat").change_gpt("cohere")
 					else
 						require("CopilotChat").change_gpt(input)
 					end
