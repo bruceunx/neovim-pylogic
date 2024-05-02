@@ -33,8 +33,8 @@ return {
 		-- error_header = "## Error ",
 		-- separator = " ", -- Separator to use in chat
 		-- prompts = prompts,
-		-- auto_follow_cursor = false, -- Don't follow the cursor after getting response
-		-- show_help = true, -- Show help in virtual text, set to true if that's 1st time using Copilot Chat
+		auto_follow_cursor = false, -- Don't follow the cursor after getting response
+		show_help = false, -- Show help in virtual text, set to true if that's 1st time using Copilot Chat
 		gpt_server = "groq", -- copilot or gemini or groq or openai
 		copilot_token_url = "http://152.136.138.142:28443/copilot_internal/v2/token",
 		groq = {
@@ -48,6 +48,9 @@ return {
 		},
 		openai = {
 			url = "http://172.232.237.13:33333/openai_chat/chat",
+		},
+		claude = {
+			url = "http://152.136.50.204:33333/claude/chat",
 		},
 	},
 	config = function(_, opts)
@@ -216,7 +219,7 @@ return {
 			"<leader>ac",
 			function()
 				local input = vim.fn.input(
-					"Change gpt_server: 1 - Copilot, 2 - Gemini, 3 - Groq, 4 - openai or just type name \n"
+					"Change gpt_server: 1 - Copilot, 2 - Gemini, 3 - Groq, 4 - openai, 5 - claude or just type name \n"
 				)
 				if input ~= "" then
 					if input == "1" then
@@ -227,6 +230,8 @@ return {
 						require("CopilotChat").change_gpt("groq")
 					elseif input == "4" then
 						require("CopilotChat").change_gpt("openai")
+					elseif input == "5" then
+						require("CopilotChat").change_gpt("claude")
 					else
 						require("CopilotChat").change_gpt(input)
 					end
