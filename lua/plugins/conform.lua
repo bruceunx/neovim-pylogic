@@ -27,6 +27,7 @@ return {
 			html = { "prettier" },
 			xml = { "xmlformat" },
 			json = { "prettier" },
+			rust = { "rustfmt" },
 			yaml = { "prettier" },
 			markdown = { "prettier" },
 			graphql = { "prettier" },
