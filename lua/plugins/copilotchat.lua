@@ -35,7 +35,7 @@ return {
 		-- prompts = prompts,
 		auto_follow_cursor = false, -- Don't follow the cursor after getting response
 		show_help = false, -- Show help in virtual text, set to true if that's 1st time using Copilot Chat
-		gpt_server = "gemini", -- copilot or gemini or groq or openai
+		gpt_server = "claude", -- copilot or gemini or groq or openai
 		copilot_token_url = "http://152.136.138.142:28443/copilot_internal/v2/token",
 		groq = {
 			url = "http://172.232.237.13:33333/groq/chat",
