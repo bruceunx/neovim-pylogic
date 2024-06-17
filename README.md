@@ -9,3 +9,7 @@
 - support DAP for c, cpp, python, rust and c#
 
 - transform null-ls to nono-ls with lazyvim
+
+- 🐛
+- ❌
+- ⭕
